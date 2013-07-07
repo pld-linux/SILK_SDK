@@ -59,7 +59,7 @@ Statyczna biblioteka SKP SILK SDK.
 
 %build
 dir=SILK_SDK_SRC_%{flavour}_v%{version}
-%{__make} -C $dir \
+%{__make} -j1 -C $dir \
 	ADDED_CFLAGS="%{rpmcflags}" \
 	CC="libtool --mode=compile --tag=CC %{__cc}" \
 	CXX="libtool --mode=compile --tag=CXX %{__cxx}" \
