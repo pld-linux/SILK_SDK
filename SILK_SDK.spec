@@ -65,7 +65,7 @@ dir=SILK_SDK_SRC_%{flavour}_v%{version}
 	CXX="libtool --mode=compile --tag=CXX %{__cxx}" \
 	LDLIBS="$(pwd)/$dir/libSKP_SILK_SDK.la" \
 	LINK.o="libtool --mode=link --tag=CC %{__cc}" \
-	ARCHIVE.cmdline='libtool --mode=link --tag=CC %{__cc} -rpath %{_libdir} -o $(@:.a=.la) $^'
+	ARCHIVE.cmdline='libtool --mode=link --tag=CC %{__cc} -rpath %{_libdir} -o $(@:.a=.la) $(^:.o=.lo)'
 
 %install
 rm -rf $RPM_BUILD_ROOT
