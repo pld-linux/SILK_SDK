@@ -15,7 +15,7 @@ Summary:	SILK audio codec SDK
 Summary(pl.UTF-8):	SDK kodeka dźwięku SILK
 Name:		SILK_SDK
 Version:	1.0.9
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Libraries
 Source0:	http://cdn.dev.skype.com/upload/SILK_SDK_SRC_v%{version}.zip
