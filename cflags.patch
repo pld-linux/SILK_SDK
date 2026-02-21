@@ -1,0 +1,22 @@
+--- SILK_SDK-1.0.9/SILK_SDK_SRC_FIX_v1.0.9/Makefile~	2012-07-30 19:47:58.000000000 +0200
++++ SILK_SDK-1.0.9/SILK_SDK_SRC_FIX_v1.0.9/Makefile	2026-02-21 11:48:28.693336416 +0100
+@@ -33,7 +33,7 @@
+ LDFLAGS += $(call ldflags-from-ldlibdirs,$(LDLIBDIRS))
+ LDLIBS  += $(call ldlibs-from-libs,$(LIBS))
+ 
+-COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) -o $@ $<
++COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) $(ADDED_CFLAGS) -o $@ $<
+ LINK.o.cmdline      = $(LINK.o) $^ $(LDLIBS) -lm -o $@$(EXESUFFIX) 
+ ARCHIVE.cmdline     = $(AR) $(ARFLAGS) $@ $^ && $(RANLIB) $@
+ 
+--- SILK_SDK-1.0.9/SILK_SDK_SRC_FLP_v1.0.9/Makefile~	2012-07-30 19:48:00.000000000 +0200
++++ SILK_SDK-1.0.9/SILK_SDK_SRC_FLP_v1.0.9/Makefile	2026-02-21 11:48:50.486669742 +0100
+@@ -33,7 +33,7 @@
+ LDFLAGS += $(call ldflags-from-ldlibdirs,$(LDLIBDIRS))
+ LDLIBS  += $(call ldlibs-from-libs,$(LIBS))
+ 
+-COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) -o $@ $<
++COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) $(ADDED_CFLAGS) -o $@ $<
+ LINK.o.cmdline      = $(LINK.o) $^ $(LDLIBS) -lm -o $@$(EXESUFFIX) 
+ ARCHIVE.cmdline     = $(AR) $(ARFLAGS) $@ $^ && $(RANLIB) $@
+ 

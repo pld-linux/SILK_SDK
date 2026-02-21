@@ -15,11 +15,12 @@ Summary:	SILK audio codec SDK
 Summary(pl.UTF-8):	SDK kodeka dźwięku SILK
 Name:		SILK_SDK
 Version:	1.0.9
-Release:	3
+Release:	4
 License:	BSD-like
 Group:		Libraries
 Source0:	http://cdn.dev.skype.com/upload/SILK_SDK_SRC_v%{version}.zip
 # Source0-md5:	90b330d48b04fb189a4f524e46d55f8f
+Patch0:		cflags.patch
 URL:		http://dev.skype.com/silk
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,6 +57,7 @@ Statyczna biblioteka SKP SILK SDK.
 
 %prep
 %setup -q -c
+%patch -P0 -p1
 
 %build
 dir=SILK_SDK_SRC_%{flavour}_v%{version}
@@ -88,13 +90,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc SILK_SDK_SRC_%{flavour}_v%{version}/{readme.txt,doc/SILK_Evaluation.pdf}
 %attr(755,root,root) %{_bindir}/silk-decoder
 %attr(755,root,root) %{_bindir}/silk-encoder
-%attr(755,root,root) %{_libdir}/libSKP_SILK_SDK.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libSKP_SILK_SDK.so.0
+%{_libdir}/libSKP_SILK_SDK.so.*.*.*
+%ghost %{_libdir}/libSKP_SILK_SDK.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc SILK_SDK_SRC_%{flavour}_v%{version}/doc/{SILK_RTP_PayloadFormat.pdf,SILK_SDK_API.pdf}
-%attr(755,root,root) %{_libdir}/libSKP_SILK_SDK.so
+%{_libdir}/libSKP_SILK_SDK.so
 %{_libdir}/libSKP_SILK_SDK.la
 %{_includedir}/SKP_Silk_*.h
 
